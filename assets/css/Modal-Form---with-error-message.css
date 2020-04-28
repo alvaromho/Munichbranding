@@ -1,0 +1,137 @@
+* {
+  scroll-behavior: smooth;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+#button-c {
+  background-color: #212121;
+  border-radius: 36px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 110px;
+  border: none;
+  text-transform: uppercase;
+}
+
+#button-c:focus {
+  box-shadow: none;
+}
+
+#button-c:hover {
+  background-color: rgb(255,255,255);
+  color: #323232;
+  text-decoration: none;
+}
+
+#tittle-c {
+  font-family: Barlow, sans-serif;
+  padding-top: 40px;
+  text-align: left;
+}
+
+#button-c {
+  font-weight: 700;
+}
+
+#button-c-c {
+  padding-top: 2em;
+  padding-bottom: 5em;
+  margin-right: 104px;
+}
+
+.form-control:hover {
+  border-color: white;
+}
+
+.form-control {
+  display: block;
+  width: 80%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+  background-color: rgba(255,255,255,0);
+  background-clip: padding-box;
+  border: none;
+  border-radius: 0;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  text-align: left;
+  border-bottom: 1px solid black;
+}
+
+.form-control:focus {
+  color: #000000;
+  background-color: #fbae16;
+  border-color: initial;
+  outline: 0;
+  box-shadow: none;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.input-group-prepend {
+  min-width: 120px;
+}
+
+.input-group-text {
+  min-width: 120px;
+}
+
+.btn {
+  padding: 14px 24px;
+  border: 0 none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+  outline: 0 none;
+}
+
+.btn-primary {
+  background: #0099cc;
+  color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  background: #33a6cc;
+}
+
+.btn-primary:active, .btn-primary.active {
+  background: #007299;
+  box-shadow: none;
+}
+
+.error-message-div {
+  margin-bottom: -10px;
+  font-style: italic;
+  visibility: hidden;
+}
+
+.form-control:focus {
+  border-color: #25476a;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+

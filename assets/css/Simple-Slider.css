@@ -1,0 +1,52 @@
+.simple-slider .swiper-slide {
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.simple-slider .swiper-button-next, .simple-slider .swiper-button-prev {
+  width: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media (max-width:767px) {
+  .simple-slider .swiper-button-next, .simple-slider .swiper-button-prev {
+    display: none;
+  }
+}
+
+@media (max-width:767px) {
+  .simple-slider .swiper-slide {
+    height: 360px;
+  }
+}
+
+.portfolio-block.photography .item a img {
+}
+
+.portfolio-block.photography {
+}
+
+.container {
+  max-width: 100%;
+}
+
+.col-md-4.col-xl-3.servicios:hover {
+  background-color: #000000;
+  margin-top: 6px;
+}
+
+.col-md-4.col-xl-3.servicios {
+  padding-bottom: 10%;
+  padding-top: 5%;
+}
+
+.list-inline, .list-unstyled {
+}
+
+.list-unstyled.lista-mapa > li {
+  margin-top: 10px;
+}
+

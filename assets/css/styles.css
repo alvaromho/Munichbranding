@@ -1,0 +1,107 @@
+.error-message-div {
+  margin-bottom: -10px;
+  font-style: italic;
+  visibility: hidden;
+}
+
+
+.msg-error{
+  margin-top: 5px;
+}
+.button-gestion-interna{
+  margin-left: 20%;
+}
+.button-gestion-interna-centro{
+  margin-left: 40%;
+}
+.button-agenda{
+  margin-left: 5%;
+}
+
+.button-margin{
+  margin-left: 10%;
+}
+
+.instrucciones{
+  font-size: 5px;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+.fixed2 {
+  position: fixed;
+  bottom: 10px;
+  right: 40px;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+.alert_msg {
+  padding: 20px;
+  color: white;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  border-radius: 10px;
+  width: 50%;
+}
+.error {
+  background-color: rgba(244, 0, 4, 0.75);
+}
+.success {
+  background-color: rgba(20, 150, 0);
+}
+.notice {
+  background-color: rgba(0, 53, 244, 0.75);
+}
+
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+.modal-grande{
+  max-width: 1000px;
+}
+.linea-izq{
+  padding: 3px 10px;
+  border-left: PowderBlue 3px  solid;
+
+}
+

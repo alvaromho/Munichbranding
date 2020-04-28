@@ -1,0 +1,272 @@
+
+html{
+    font-size: 14px;
+}
+main {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.imagen-nosotros{
+    height: 120vh;
+    background: #AEAEAE;
+    background-image: url("../img/nosotros.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.imagen-clientes{
+    /*height: 110vh;*/
+    height: auto;
+    width: 100%;
+   /* background: #AEAEAE;
+    background-image: url("../img/nosotros.jpg");
+    background-size: cover;
+    background-position: center;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+.imagen-premios{
+    width: 100%;
+    height: auto;
+    background-image: url("../img/premios.jpg");
+    background-size: cover;
+    background-position: center;
+    vertical-align: middle;
+}
+.imagen-fachada{
+    height: 80vh;
+    background: #AEAEAE;
+    background-image: url("../img/fachada-if.jpg");
+    background-size: cover;
+    background-position: 50% 5%;
+    margin: 0 0 0 0!important;
+
+}
+.row {
+    margin:  10px 0 10px 0;
+}
+.no_margin {
+    margin:  0;
+}
+
+.cuadro-gris{
+    background-color: #282828;
+}
+.cuadro-blanco{
+    background-color: #e8e8e8;
+
+}
+.about{
+    display: flex;
+    height: 75vh;
+    font-size: 1.3rem;
+    height: 100%;
+}
+span{
+    font-family: "QuincyCF", sans-serif;
+}
+p {
+    font-family: "Raleway";
+}
+
+
+.col-first{
+    flex: 50%;
+    padding: 5%!important;
+}
+.col {
+    flex: 50%;
+    padding: 5%;
+}
+.col.cuadro-gris{
+    padding: 0%;
+}
+.col.cuadro-gris > span{
+
+    color: white;
+    font-weight: 600;
+}
+.col.cuadro-gris > p{
+    margin-top: 2.2rem;
+    color: white    ;
+}
+.col.cuadro-blanco > span{
+    color: black;
+    font-weight: 600;
+    font-size: 2.0rem;
+}
+.col.cuadro-blanco > p{
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #555555;
+}
+.col.cuadro-gris img{
+    width: 100%;
+    height: 100%;
+}
+.awards{
+    /*padding: 5%;*/
+    /*margin: 5% 0 5% 0;*/
+    font-weight: 600;
+    display: inline-flex;
+    width: 100%;
+}
+.socios{
+    height: 100vh;
+    width: 100%;
+    min-width: 100%;
+    display: inline-flex;
+    height: 80vh;
+    /*padding-top: 5%;*/
+
+}
+.ajustar{
+    max-width: 100%;
+    height: auto;
+    margin-left: 30%;
+}
+.ajustar-premios{
+    height: 110px;
+    width: auto;
+}
+
+.ajustar-premios2{
+    height: 90px;
+    width: auto;
+}
+.ajustar-premios3{
+    height: 85px;
+    width: auto;
+}
+.ajustar-premios4{
+    height: 45px;
+    width: auto;
+}
+.ajustar-premios5{
+    height: 60px;
+    width: auto;
+}
+img {
+    max-width:100%;
+    height:46%;
+}
+/*.premios{
+    max-width: auto;
+    width: 100%;
+    height:auto;
+}*/
+
+.premios{
+    display: flex;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+.contenido{
+    font-size: 20px;
+    padding-top: 14%;
+    padding-right: 7%;
+}
+.img-container{
+    width: 100%;
+    display: inline-flex;
+}
+.investigacion{
+    background: url("../img/investigación.jpg");
+    background-size: cover;
+    background-position: center;
+
+}
+.estrategia{
+    background: url("../img/estrategia.jpg");
+    background-size: cover;
+    background-position: center;
+
+}
+.hall{
+    background: url("../img/hall.jpg");
+    background-size: cover;
+    background-position: center;
+
+}
+.ok{
+    background: url("../img/ok.jpg");
+    background-size: cover;
+    background-position: center;
+
+}
+
+.p-about{font-size: 1.2rem;
+    line-height: 1.8rem;
+    font-weight: 200;
+}
+
+.cuadro-blanco span.first{
+    font-size: 1.6rem;
+}
+.cuadro-blanco span{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: black
+}
+
+.columna{
+    flex: 14.28%;
+    text-align: center;
+    line-height: 200px;
+}
+.img-premios{
+    vertical-align: middle;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (min-width: 1500px) {
+    html{
+        font-size: 15px;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    .col {
+        padding: 2%;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .imagen-nosotros{
+        max-width: 100vw;
+        height: 50vh;
+    }
+    .col {
+        flex: 100%;
+        padding: 2%;
+
+    }
+
+    .columna {
+        flex: 50%;
+    }
+
+    .responsive-reverse{
+        flex-direction: column-reverse;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .imagen-nosotros{
+        max-width: 100vw;
+        height: 50vh;
+    }
+    .responsive-reverse{
+        flex-direction: column-reverse;
+    }
+
+    .columna {
+        flex: 100%;
+    }
+
+
+}
+

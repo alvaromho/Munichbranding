@@ -1,0 +1,26 @@
+.row.div-portafolio {
+  min-height: 400px;
+}
+
+.heading-portafolio {
+  text-align: center;
+}
+
+.div-portafolio {
+  align-items: center;
+  background-color: #6a6160;
+  color: white;
+}
+
+.medio-div-portafolio {
+  min-height: 200px;
+  background-color: grey;
+  align-items: center;
+}
+
+.medio-div-portafolio2 {
+  min-height: 200px;
+  background-color: #2f2322;
+  align-items: center;
+}
+
