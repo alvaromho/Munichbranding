@@ -1,11 +1,22 @@
 <?php
+
+
 class DB {
     protected static $con;
     private function __construct(){
         try{
-            self::$con = new PDO(
-                'mysql:charset=utf8mb4;host=localhost;port=3306;dbname=cmuoeaam_munich',
-                'cmuoeaam_amunoz', 'shinji5290623');
+            
+            if ($_SERVER['HTTP_HOST'] == 'localhost'){
+                self::$con = new PDO(
+                    'mysql:charset=utf8mb4;host=localhost;port=3306;dbname=cmuoeaam_munich',
+                    'root', '');
+            }else if ($_SERVER['HTTP_HOST'] == 'munichbranding.cl'){
+                self::$con = new PDO(
+                    'mysql:charset=utf8mb4;host=localhost;port=3306;dbname=munich',
+                    'amunoz', 'shinji5290623');
+            }
+                
+                
             self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             self::$con->setAttribute(PDO::ATTR_PERSISTENT, false);
           } catch(PDOException $e){

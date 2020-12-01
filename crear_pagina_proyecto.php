@@ -27,7 +27,10 @@ function crear_pagina_proyecto_conf($nombre, $idProyecto)
                                     <?php   include 'navbar.php';?>
                                 <!-- Contenido de la página-->
                         
-                                <?php include 'contenido_proyecto.php'; ?>
+                                <?php include 'contenido_proyecto.php'; ?>                        
+                                <?php include 'proyectos_relacionados.php'; ?>
+
+                                
                                 <?php include 'footer.php';?>
                                 <!-- /Contenido de la página-->
                         
@@ -155,6 +158,8 @@ function crear_pagina_proyecto($nombre,$idProyecto)
                         <body>
                         <?php include 'navbar.php'; ?>
                         <?php include 'contenido_proyecto.php'; ?>
+                        <?php include 'proyectos_relacionados.php'; ?>
+
                         ";
     $codigo_pagina .= "
                             <?php include 'footer.php';?>

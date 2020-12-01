@@ -10,17 +10,18 @@ require_once "funciones.php";
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    include 'crear_pagina_proyecto.php';
+    //include 'crear_pagina_proyecto.php';
+
+    $valid_extensions = array("jpeg", "jpg", "png", "gif");
 
     if (!empty($_POST['nombre'])) {
         if (!empty($_POST['nombre']) || !empty($_FILES['thumbnail']['name']) || !empty($_FILES['thumbnail2']['name']) ||!empty($_FILES['thumbnail3']['name']) || !empty($_FILES['slider']['name']) || !empty($_POST['categoria']) || !empty($_POST['descripcion'])) {
             $uploadedFile1 = '';
             if (!empty($_FILES["thumbnail"]["type"])) {
                 $fileName = sanitizar(str_replace(" ", "_",$_FILES['thumbnail']['name']));
-                $valid_extensions = array("jpeg", "jpg", "png");
                 $temporary = explode(".", $_FILES["thumbnail"]["name"]);
                 $file_extension = end($temporary);
-                if ((($_FILES["thumbnail"]["type"] == "image/png") || ($_FILES["thumbnail"]["type"] == "image/jpg") || ($_FILES["thumbnail"]["type"] == "image/jpeg")) && in_array($file_extension, $valid_extensions)) {
+                if ( in_array($file_extension, $valid_extensions)) {
                     $sourcePath = $_FILES['thumbnail']['tmp_name'];
                     $targetPath = "img/" . sanitizar(str_replace(" ","_", $fileName));
                     if (move_uploaded_file($sourcePath, $targetPath)) {
@@ -31,10 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $uploadedFile2 = '';
             if (!empty($_FILES["thumbnail2"]["type"])) {
                 $fileName = sanitizar(str_replace(" ", "_",$_FILES['thumbnail2']['name']));
-                $valid_extensions = array("jpeg", "jpg", "png");
                 $temporary = explode(".", $_FILES["thumbnail2"]["name"]);
                 $file_extension = end($temporary);
-                if ((($_FILES["thumbnail2"]["type"] == "image/png") || ($_FILES["thumbnail2"]["type"] == "image/jpg") || ($_FILES["thumbnail2"]["type"] == "image/jpeg")) && in_array($file_extension, $valid_extensions)) {
+                if ( in_array($file_extension, $valid_extensions)) {
                     $sourcePath = $_FILES['thumbnail2']['tmp_name'];
                     $targetPath = "img/" . sanitizar(str_replace(" ","_", $fileName));
                     if (move_uploaded_file($sourcePath, $targetPath)) {
@@ -45,10 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $uploadedFile3 = '';
             if (!empty($_FILES["thumbnail3"]["type"])) {
                 $fileName = sanitizar(str_replace(" ", "_",$_FILES['thumbnail3']['name']));
-                $valid_extensions = array("jpeg", "jpg", "png");
                 $temporary = explode(".", $_FILES["thumbnail3"]["name"]);
                 $file_extension = end($temporary);
-                if ((($_FILES["thumbnail3"]["type"] == "image/png") || ($_FILES["thumbnail3"]["type"] == "image/jpg") || ($_FILES["thumbnail3"]["type"] == "image/jpeg")) && in_array($file_extension, $valid_extensions)) {
+                if ( in_array($file_extension, $valid_extensions)) {
                     $sourcePath = $_FILES['thumbnail3']['tmp_name'];
                     $targetPath = "img/" . sanitizar(str_replace(" ","_", $fileName));
                     if (move_uploaded_file($sourcePath, $targetPath)) {
@@ -59,10 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $slider = '';
             if (!empty($_FILES["slider"]["type"])) {
                 $fileName = sanitizar(str_replace(" ", "_",$_FILES['slider']['name']));
-                $valid_extensions = array("jpeg", "jpg", "png");
+
                 $temporary = explode(".", $_FILES["slider"]["name"]);
                 $file_extension = end($temporary);
-                if ((($_FILES["slider"]["type"] == "image/png") || ($_FILES["slider"]["type"] == "image/jpg") || ($_FILES["slider"]["type"] == "image/jpeg")) && in_array($file_extension, $valid_extensions)) {
+                if ( in_array($file_extension, $valid_extensions)) {
                     $sourcePath = $_FILES['slider']['tmp_name'];
                     $targetPath = "img/" . sanitizar(str_replace(" ","_", $fileName));
                     if (move_uploaded_file($sourcePath, $targetPath)) {
@@ -75,10 +74,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nombre = sanitizar($_POST['nombre']);
             $categoria = $_POST['categoria'];
             $descripcion = $_POST['descripcion'];
-            $cliente = quitar_saltos($_POST['e_cliente']);
-            $industria = quitar_saltos($_POST['e_industria']);
-            $servicios = quitar_saltos($_POST['e_servicios']);
-            $detalles = quitar_saltos($_POST['e_detalles']);
+            $color_descripcion = $_POST['color_descripcion'];
+            //if ($color_descripcion == "") $color_descripcion = "black";
+            $cliente = quitar_saltos($_POST['cliente']);
+            $industria = quitar_saltos($_POST['industria']);
+            $servicios = quitar_saltos($_POST['servicios']);
+            $detalles = quitar_saltos($_POST['detalles']);
 
             //include database configuration file
             include_once 'assets/config/config.php';
@@ -96,10 +97,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Si existe
                 print_msg('error', 'Proyecto ya existe.');
             } else {
-                // echo "INSERT into proyecto (nombre,thumbnail,thumbnail2,thumbnail3, categoria,orden,cliente,industria,servicios,slider) VALUES ('" . $nombre . "','" . $uploadedFile1 . "','" . $uploadedFile2 . "','" . $uploadedFile3 . "','" . $categoria . "',(select last_insert_id(orden)+1 from proyecto as p   order by orden desc limit 1)),'" . $cliente . "','" . $industria . "','" . $servicios . "','" . $slider . "')";
-                $insert = $con->query("INSERT into proyecto (nombre,thumbnail,thumbnail2,thumbnail3, categoria,orden,cliente,industria,servicios,slider,detalles) VALUES ('" . $nombre . "','" . $uploadedFile1 . "','" . $uploadedFile2 . "','" . $uploadedFile3 . "','" . $categoria . "',(select last_insert_id(orden)+1 from proyecto as p   order by orden desc limit 1),'" . $cliente . "','" . $industria . "','" . $servicios . "','" . $slider . "','" . $detalles . "')");
+                // echo "INSERT into proyecto (nombre,descripción, thumbnail,thumbnail2,thumbnail3, categoria,orden,cliente,industria,servicios,slider) VALUES ('" . $nombre . "','" . $uploadedFile1 . "','" . $uploadedFile2 . "','" . $uploadedFile3 . "','" . $categoria . "',(select last_insert_id(orden)+1 from proyecto as p   order by orden desc limit 1)),'" . $cliente . "','" . $industria . "','" . $servicios . "','" . $slider . "')";
+                $insert = $con->query("INSERT into proyecto (nombre,descripcion,thumbnail,thumbnail2,thumbnail3, categoria,orden,cliente,industria,servicios,slider,detalles,color_descripcion) VALUES ('" . $nombre . "','" . $descripcion . "','" . $uploadedFile1 . "','" . $uploadedFile2 . "','" . $uploadedFile3 . "','" . $categoria . "',(select last_insert_id(orden)+1 from proyecto as p   order by orden desc limit 1),'" . $cliente . "','" . $industria . "','" . $servicios . "','" . $slider . "','" . $detalles . "','" . $color_descripcion . "')");
+                
+                //echo "INSERT into proyecto (nombre,descripcion,thumbnail,thumbnail2,thumbnail3, categoria,orden,cliente,industria,servicios,slider,detalles,color_descripcion) VALUES ('" . $nombre . "','" . $descripcion . "','" . $uploadedFile1 . "','" . $uploadedFile2 . "','" . $uploadedFile3 . "','" . $categoria . "',(select last_insert_id(orden)+1 from proyecto as p   order by orden desc limit 1),'" . $cliente . "','" . $industria . "','" . $servicios . "','" . $slider . "','" . $detalles . "','" . $color_descripcion . "')";
                 //echo $insert ? 'ok' : $insert . error_get_last();
-                crear_paginas($_POST['nombre'],$con->lastInsertId());
+                //crear_paginas($_POST['nombre'],$con->lastInsertId());
                 if ($insert) print_msg('success', 'Proyecto creado exitosamente.');
                 else print_msg('error', 'Error al ingresar el proyecto a la base de datos.');
             }
@@ -112,10 +115,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $uploadedFile1 = '';
             if (!empty($_FILES["e_thumbnail"]["type"])) {
                 $fileName = sanitizar(str_replace(" ", "_", $_FILES['e_thumbnail']['name']));
-                $valid_extensions = array("jpeg", "jpg", "png");
                 $temporary = explode(".", $_FILES["e_thumbnail"]["name"]);
                 $file_extension = end($temporary);
-                if ((($_FILES["e_thumbnail"]["type"] == "image/png") || ($_FILES["e_thumbnail"]["type"] == "image/jpg") || ($_FILES["e_thumbnail"]["type"] == "image/jpeg")) && in_array($file_extension, $valid_extensions)) {
+                if ( in_array($file_extension, $valid_extensions)) {
                     $sourcePath = $_FILES['e_thumbnail']['tmp_name'];
                     $targetPath = "img/" . sanitizar(str_replace(" ","_", $fileName));
                     if (move_uploaded_file($sourcePath, $targetPath)) {
@@ -126,10 +128,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $uploadedFile2 = '';
             if (!empty($_FILES["e_thumbnail2"]["type"])) {
                 $fileName = sanitizar(str_replace(" ", "_", $_FILES['e_thumbnail2']['name']));
-                $valid_extensions = array("jpeg", "jpg", "png");
+
                 $temporary = explode(".", $_FILES["e_thumbnail2"]["name"]);
                 $file_extension = end($temporary);
-                if ((($_FILES["e_thumbnail2"]["type"] == "image/png") || ($_FILES["e_thumbnail2"]["type"] == "image/jpg") || ($_FILES["e_thumbnail2"]["type"] == "image/jpeg")) && in_array($file_extension, $valid_extensions)) {
+                if ( in_array($file_extension, $valid_extensions)) {
                     $sourcePath = $_FILES['e_thumbnail2']['tmp_name'];
                     $targetPath = "img/" . sanitizar(str_replace(" ","_", $fileName));
                     if (move_uploaded_file($sourcePath, $targetPath)) {
@@ -140,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $uploadedFile3 = '';
             if (!empty($_FILES["e_thumbnail3"]["type"])) {
                 $fileName = sanitizar(str_replace(" ", "_", $_FILES['e_thumbnail3']['name']));
-                $valid_extensions = array("jpeg", "jpg", "png");
+
                 $temporary = explode(".", $_FILES["e_thumbnail3"]["name"]);
                 $file_extension = end($temporary);
                 if ((($_FILES["e_thumbnail3"]["type"] == "image/png") || ($_FILES["e_thumbnail3"]["type"] == "image/jpg") || ($_FILES["e_thumbnail3"]["type"] == "image/jpeg")) && in_array($file_extension, $valid_extensions)) {
@@ -154,10 +156,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $slider = '';
             if (!empty($_FILES["e_slider"]["type"])) {
                 $fileName = sanitizar(str_replace(" ","_",$_FILES['e_slider']['name']));
-                $valid_extensions = array("jpeg", "jpg", "png");
+
                 $temporary = explode(".", $_FILES["e_slider"]["name"]);
                 $file_extension = end($temporary);
-                if ((($_FILES["e_slider"]["type"] == "image/png") || ($_FILES["e_slider"]["type"] == "image/jpg") || ($_FILES["e_slider"]["type"] == "image/jpeg")) && in_array($file_extension, $valid_extensions)) {
+                if ( in_array($file_extension, $valid_extensions)) {
                     $sourcePath = $_FILES['e_slider']['tmp_name'];
                     $targetPath = "img/" . sanitizar(str_replace(" ","_", $fileName));
                     if (move_uploaded_file($sourcePath, $targetPath)) {
@@ -170,6 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nombre = sanitizar($_POST['e_nombre']);
             $categoria = $_POST['e_categoria'];
             $descripcion = $_POST['e_descripcion'];
+            $color_descripcion = $_POST['e_color_descripcion'];
             $idProyecto = $_POST['idProyecto'];
             $cliente = quitar_saltos($_POST['e_cliente']);
             $industria = quitar_saltos($_POST['e_industria']);
@@ -178,7 +181,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
             //include database configuration file
-            include_once 'assets/config/config.php';
+            //include_once 'assets/config/config.php';
 
             //insert form data in the database
             $buscar = $con->query(" select * from proyecto where idProyecto = '" . $idProyecto . "' LIMIT 1");
@@ -190,7 +193,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($buscar->rowCount() == 1 ) {
                 $buscar->fetch();
-                if ($buscar["nombre"] != $nombre){ echo '<script type="application/javascript">alert(1);</script>';}
                 $sql = "UPDATE proyecto SET nombre = '" . $nombre . "',categoria = '" . $categoria . "',descripcion = '" . $descripcion."'";
                 if ($uploadedFile1 != '') $sql .= ", thumbnail = '".$uploadedFile1."'";
                 if ($uploadedFile2 != '') $sql .= ", thumbnail2 = '".$uploadedFile2."'";
@@ -200,6 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($servicios != '') $sql .= ", servicios = '".$servicios."'";
                 if ($industria != '') $sql .= ", industria = '".$industria."'";
                 if ($detalles != '') $sql .= ", detalles = '".$detalles."'";
+                if ($color_descripcion != '') $sql .= ", color_descripcion = '".$color_descripcion."'";
 
 
                 // if ($uploadedFile2 != '') $sql .= ", slider = '".$uploadedFile2."'";
@@ -278,19 +281,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <table id="tabla" class="table table-bordered table-hover">
                         <thead class="bill-header cs">
                         <tr>
-                            <th id="trs-hd"  style="width:5%"># Orden</th>
-                            <th id="trs-hd" style="width:15%" >Nombre</th>
+                            <th id="trs-hd"  style="width:3%"># Orden</th>
+                            <th id="trs-hd" style="width:10%" >Nombre</th>
+                            <th id="trs-hd" style="width:15%" >Descripción</th>
                             <th id="trs-hd" style="width:15%">Slider</th>
                             <th id="trs-hd" style="width:10%">Url Thumbnail 1</th>
                             <th id="trs-hd" style="width:10%">Url Thumbnail 2</th>
                             <th id="trs-hd" style="width:10%">Url Thumbnail 3</th>
                             <th id="trs-hd" style="width:10%">Categoria</th>
-                            <th id="trs-hd" style="width:10%"><i class="fa fa-gears" style="font-size: 22px;"></i></th>
+                            <th id="trs-hd" style="width:8%"><i class="fa fa-gears" style="font-size: 22px;"></i></th>
                         </tr>
                         </thead>
                         <tbody>
 
                         <?php
+
 
 
                         //Comrpobar su el usuario existe
@@ -303,8 +308,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 ?>
                                 <tr>
                                     <td>  <?=$row["orden"]?> </td>
-                                    <td><a href="<?=str_replace(" ","_",sanitizar_acentos($row["nombre"]))?>.php"> <?=$row["nombre"]?></a>  <a style="font-size: small" href="<?= str_replace(" ","_",sanitizar_acentos($row["nombre"]))?>_admin.php"><i class="far fa-edit"></i>
-                                        </a> </td>
+                                    <td><a href="proyectos/proyecto.php?id=<?=$row["idProyecto"]?>"> <?=$row["nombre"]?></a>  <a style="font-size: small" href="proyectos/proyecto_admin.php?id=<?=$row["idProyecto"]?>"><i class="far fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td> <?= $row["descripcion"]?></td>
                                     <td> <?= $row["slider"]?>
                                         <?php if($row["slider"] != ""):?>
                                             <a class="text-danger button-margin" type="button" onclick="eliminarSliderProyecto(<?=$row['idProyecto']?>)">
@@ -336,7 +343,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <td> <?= $row["categoria"]?></td>
 
                                     <td>
-                                        <a id="editar_proyecto" type="button" onclick="editar_proyecto(<?= $row["idProyecto"]?>,'<?= $row["nombre"]?>','<?=  $row["descripcion"]?>','<?=$row["categoria"]?>','<?= $row["thumbnail"]?>','<?= $row["thumbnail2"]?>','<?= $row["thumbnail3"]?>','<?= $row["cliente"] ?>','<?=agregar_saltos($row["industria"])?>','<?=agregar_saltos($row["servicios"])?>','<?=$row["slider"]?>','<?=agregar_saltos($row["detalles"])?>')" class="text-primary button-margin" data-toggle="tooltip" title="Editar Tarea"><i class="fas fa-edit"></i></a>
+                                        <a id="editar_proyecto" type="button" onclick="editar_proyecto(<?= $row["idProyecto"] ?>,'<?= $row["nombre"]?>','<?=  $row["descripcion"]?>','<?=$row["categoria"]?>','<?= $row["thumbnail"]?>','<?= $row["thumbnail2"]?>','<?= $row["thumbnail3"]?>','<?= $row["cliente"] ?>','<?=agregar_saltos($row["industria"])?>','<?=agregar_saltos($row["servicios"])?>','<?=$row["slider"]?>','<?=agregar_saltos($row["detalles"])?>','<?=$row["color_descripcion"]?>')" class="text-primary button-margin" data-toggle="tooltip" title="Editar Tarea"><i class="fas fa-edit"></i></a>
                                         <a class="text-danger button-margin" type="button" onclick="confirmarProyecto(<?= $row["idProyecto"]?>)"><i class="fas fa-trash-alt"></i></a>
                                         <a class="text-danger button-margin" type="button" onclick="up(<?= $row["idProyecto"]?>)"><i class="fas fa-sort-up"></i></a>
                                         <a class="text-danger button-margin" type="button" onclick="down(<?= $row["idProyecto"]?>)"><i class="fas fa-sort-down"></i></a>
@@ -391,7 +398,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <label class="input-group-text" for="categoria">Categoria</label>
                                     </div>
                                     <select class="custom-select" id="categoria" name ="categoria" required>
-                                        <option  value=""selected>Seleccionar...</option>
+                                        <option  value="" selected="true">Seleccionar...</option>
                                         <option value="Branding">Branding</option>
                                         <option value="Diseño Editorial">Diseño Editorial</option>
                                         <option value="Packaging">Packaging</option>
@@ -403,9 +410,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                     </select>
                                 </div>
-                                <div class="input-group mb-3 edtFormMarg" hidden>
-                                    <textarea class="form-control" type="text" id="descripcion" style="font-family: Barlow, sans-serif;" placeholder="Premios " name="descripcion" ></textarea>
+                                <div class="input-group mb-3 edtFormMarg" >
+                                    <textarea class="form-control" type="text" id="descripcion" style="font-family: Barlow, sans-serif;" placeholder="Descripción " name="descripcion" ></textarea>
+                                    <div class="input-group-append">
+                                        <select class="custom-select" id="color_descripcion" name ="color_descripcion" >
+                                            <option value="black" selected="true">Negro</i></option>
+                                            <option value="white">White</option>
+                                        </select>
+                                    </div>
                                 </div>
+
                                 <!--<div class="input-group mb-3 edtFormMarg">
                                     <div class="input-group-prepend" width="40%">
                                         <label class="input-group-text"  for="thumbnail">Thumbnail</label>
@@ -508,9 +522,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                     </select>
                                 </div>
-                                <div class="input-group mb-3 edtFormMarg" hidden>
-                                    <textarea class="form-control" type="text" id="e_descripcion" style="font-family: Barlow, sans-serif;" placeholder="Premios " name="e_descripcion" ></textarea>
+                                <div class="input-group mb-3 edtFormMarg" >
+                                    <textarea class="form-control" type="text" id="e_descripcion" style="font-family: Barlow, sans-serif;" placeholder="Descripción " name="e_descripcion" ></textarea>
+                                    <div class="input-group-append">
+                                        <select class="custom-select" id="e_color_descripcion" name ="e_color_descripcion" >
+                                            <option value="black" selected>Negro</i></option>
+                                            <option value="white">White</option>
+                                        </select>
+                                    </div>
                                 </div>
+
                                 <!--<div class="input-group mb-3 edtFormMarg">
                                     <div class="input-group-prepend" width="40%">
                                         <label class="input-group-text"  for="thumbnail">Thumbnail</label>
@@ -557,7 +578,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="input-group-prepend" width="40%">
                                         <label class="input-group-text" for="cliente">Cliente</label>
                                     </div>
-                                    <input class="form-control" type="text" id="e_cliente" style="font-family: Barlow, sans-serif;" placeholder="Cliente" name="e_cliente" required>
+                                    <input class="form-control" type="text" id="e_cliente" style="font-family: Barlow, sans-serif;" placeholder="Cliente" name="e_cliente" >
                                 </div>
                                 <div class="input-group mb-3 edtFormMarg">
                                     <textarea class="form-control" type="text" id="e_industria" style="font-family: Barlow, sans-serif;" placeholder="Industria " name="e_industria" ></textarea>
@@ -638,7 +659,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <script>
 
-
+    function writeLog(evento)
+    {
+        var file = "log/writeLog.php"; 
+        console.log('Textarea: '+evento);
+        var data_form = {
+            evento: evento
+        }
+        $.post(file, data_form, function(data){
+        console.log('Respuesta de la función: '+ data); 
+        }).fail(function(jqXHR){
+            alert(jqXHR.status +' '+jqXHR.statusText+ ' $.post failed!');
+        });    
+    }
 
     function crear_tarea(idProyeto) {
         $('#nuevaTarea').modal('show');
@@ -646,7 +679,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-    function editar_proyecto(idProyecto, nombre,descripcion, categoria,thumbnail,thumbnail2,thumbnail3,cliente, industria,servicios, slider,detalles){
+    function editar_proyecto(idProyecto, nombre,descripcion, categoria,thumbnail,thumbnail2,thumbnail3,cliente, industria,servicios, slider,detalles,color_descripcion){
 
         /*<option  value=""selected>Seleccionar...</option>
         <option value="Branding">Branding</option>
@@ -663,8 +696,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $('#editarProyecto').modal('show');
         $('#e_nombre').val(nombre);
         $('#label_titulo_nombre').html(nombre);
+        $("textarea[name='e_descripcion']").val(descripcion.replace(/\[SALTO]/g,"\n"));
+        $('#e_color_descripcion').val(color_descripcion);
 
-        label_titulo_nombre
         //$('#e_descripcion').val(descripcion);
         $('#e_categoria').val(categoria);
         $('#idProyecto').val(idProyecto);
@@ -676,7 +710,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $("textarea[name='e_detalles']").val(detalles.replace(/\[SALTO]/g,"\n"));
 
 
-        if (cliente != "")$('#e_cliente').val(cliente);
+        if (cliente != "") $('#e_cliente').val(cliente); else {$('#e_cliente').val("");}
         $('#label-slider-editar').html(slider);
 
 
@@ -687,12 +721,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     function confirmarProyecto(id) {
         if (confirm("¿Desea eliminar el objeto seleccionado? Esta acción no se puede deshacer.")) {
-            delete_itemProyecto(id);
+            delete_proyecto(id);
         }
     }
 
     // Borrar un Area
-    function delete_itemProyecto(idProyecto) {
+    function delete_proyecto(idProyecto) {
+       
+
         var url_php = 'eliminar_proyecto.php';
         var data_form = {
             id: idProyecto
@@ -707,11 +743,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         })
             .done(function ajaxDone(res) {
-                console.log(res);
+                writeLog(res.responseText)
+                console.log(res.responseText);
             })
-            .fail(function ajaxError(e) {
-
-                console.log(e);
+            .fail(function ajaxError(res) {
+                writeLog(res.responseText);
+                console.log("FAIL");
+                console.log(res.responseText );
             })
             .always(function ajaxAlways(e) {
 

@@ -42,7 +42,8 @@ function sanitizar($string)
 
 function quitar_saltos($string){
     $string =str_replace("\r\n", "[SALTO]",$string);
-    $string =str_replace("\n", "[SALTO]",$string);;
+    $string =str_replace("\n", "[SALTO]",$string);
+
 
 
     return $string;
@@ -51,6 +52,8 @@ function quitar_saltos($string){
 function agregar_saltos($string){
     //$string = str_replace( "[SALTO]","\n",$string);
     //$string = str_replace( "[SALTO]","\r\n",$string);
+    $string  = str_replace("\"", "&quot;" ,$string);
+    $string  = str_replace("'", "&apos;;" ,$string);
 
 
     return $string;
@@ -227,5 +230,28 @@ function getProyecto($id)
         echo $e;
     }
 }
+
+function getCategoria($id)
+{
+    global $con;
+
+    //insert form data in the database
+    $buscar = $con->query(" select categoria from proyecto where  idProyecto = '" . $id . "' LIMIT 1");
+    try {
+        $proyecto = $buscar->fetch(PDO::FETCH_ASSOC) ;
+        $categoria = $proyecto["categoria"];
+
+        if ($categoria == 'branding' || $categoria == 'Branding') $categoria  = 'Branding';
+        if ($categoria == 'editorial' || $categoria == 'Diseño Editorial') $categoria = 'Diseño Editorial';
+        if ($categoria == 'packaging'|| $categoria == 'Packaging') $categoria = 'Packaging';
+        if ($categoria == 'espacios' || $categoria == 'Diseño Espacios') $categoria  = 'Diseño Espacios';
+        if ($categoria == 'digital' || $categoria == 'Digital') $categoria  = 'Digital';
+        
+        return $categoria;
+    } catch (Exception $e) {
+        echo $e;
+    }
+}
+
 
 ?>

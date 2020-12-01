@@ -11,7 +11,72 @@ $pagina = 'nosotros';
 <body>
 <?php include 'navbar.php'; ?>
 
+<style>
+    .sobre-munich{
+        background-color: black;
+        color: rgb(250,228,231);
+    }
+</style>
 <main>
+
+  <!--  <div class="row sobre-munich">
+        <div class="col col-lg-5 col-sm-12"><h2>Sobre Munich</h2></div>
+        <div class="col col-lg-8 col-sm-12">
+             <p>Formulamos estrategias de marca de forma colaborativa,
+                trazamos el camino con bases sólidas y efectivas,
+                que sustentan las soluciones del equipo de diseño. </p>
+            <p><span  >Servicios: </span></p>
+            <p>Workshop de ADN de marca · Plataformas de marca
+                Estrategias de posicionamiento · Propuestas de valor
+                Arquitectura de marca  · Modelos de servicio · Relatos de marca</p>
+            <p>Formulamos estrategias de marca de forma colaborativa,
+                trazamos el camino con bases sólidas y efectivas,
+                que sustentan las soluciones del equipo de diseño. </p>
+            <p><span  >Servicios: </span></p>
+            <p>Workshop de ADN de marca · Plataformas de marca Estrategias de posicionamiento
+                Propuestas de valor
+                Arquitectura de marca  · Modelos de servicio · Relatos de marca</p>
+        </div>
+    </div>-->
+
+    <style>
+        #servicios{
+            background-color: rgb(250,228,231);
+            padding: 2%;
+        }
+    </style>
+
+   <!-- <div id="servicios" class="row">
+        <div class="col-lg-3">
+            <h3>Investigación</h3>
+            <p> texto</p>
+            <p> texto</p>
+            <p> texto</p>
+
+        </div>
+        <div class="col-lg-3">
+            <h3>Estrategia</h3>
+            <p> texto</p>
+            <p> texto</p>
+            <p> texto</p>
+
+        </div>      <div class="col-lg-3">
+            <h3>Diseño</h3>
+            <p> texto</p>
+            <p> texto</p>
+            <p> texto</p>
+
+        </div>
+        <div class="col-lg-3">
+            <h3>Comunicación</h3>
+            <p> texto</p>
+            <p> texto</p>
+            <p> texto</p>
+
+        </div>
+
+    </div>-->
+
     <!-- Imagen del equipo de Munich -->
     <!--<div class="row imagen-nosotros"></div>-->
     <!-- Dos cuadros con info de Munich -->
@@ -104,8 +169,7 @@ $pagina = 'nosotros';
 <!--                </div>-->
     </div>
 
-    <!-- div doble gris derecha  -->
-    <div class="row  "  style="margin-bottom: 0">
+<!--    <div class="row  "  style="margin-bottom: 0">
         <div class="col cuadro-blanco   "  >
 
             <p><span class="first"> Investigación</span></p>
@@ -123,7 +187,6 @@ $pagina = 'nosotros';
             <img  src="assets/img/investigación.jpg" alt="">
         </div>
     </div>
-    <!--  ESTRATEGIA div doble gris izq    -->
     <div class="row no_margin  responsive-reverse" >
         <div class="col cuadro-gris no_margin " >
             <img  src="assets/img/estrategia.jpg" alt="">
@@ -140,7 +203,6 @@ $pagina = 'nosotros';
             · Arquitectura de marca  · Modelos de servicio · Relatos de marca</p>
         </div>
     </div>
-    <!-- div doble gris derecha  -->
     <div class="row  no_margin  " >
         <div class="col cuadro-blanco  "  >
             <p><span class="first"  >Diseño</span></p>
@@ -156,7 +218,6 @@ $pagina = 'nosotros';
         </div>
 
     </div>
-    <!-- div doble gris derecha  -->
     <div class="row  no_margin   responsive-reverse" >
         <div class="col cuadro-gris no_margin" >
             <img  src="assets/img/ok.jpg" alt="">
@@ -176,7 +237,7 @@ $pagina = 'nosotros';
 
         </div>
 
-    </div>
+    </div>-->
 
 </main>
 

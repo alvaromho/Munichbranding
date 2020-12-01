@@ -1,4 +1,4 @@
-<?php $idProyecto = 154; ?>
+<?php $idProyecto = 256; ?>
 
                         <!DOCTYPE html>
                         <html>
@@ -8,6 +8,8 @@
                         <body>
                         <?php include 'navbar.php'; ?>
                         <?php include 'contenido_proyecto.php'; ?>
+                        <?php include 'proyectos_relacionados.php'; ?>
+
                         
                             <?php include 'footer.php';?>
                             <script src="assets/js/jquery.min.js"></script>

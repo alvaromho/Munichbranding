@@ -1,4 +1,4 @@
-<?php $idProyecto = 158; ?><!DOCTYPE html>
+<?php $idProyecto = 261; ?><!DOCTYPE html>
                         <html>
                         
                         <?php include 'head.php'; ?>
@@ -14,7 +14,10 @@
                                     <?php   include 'navbar.php';?>
                                 <!-- Contenido de la página-->
                         
-                                <?php include 'contenido_proyecto.php'; ?>
+                                <?php include 'contenido_proyecto.php'; ?>                        
+                                <?php include 'proyectos_relacionados.php'; ?>
+
+                                
                                 <?php include 'footer.php';?>
                                 <!-- /Contenido de la página-->
                         

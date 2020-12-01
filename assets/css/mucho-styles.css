@@ -1,78 +1,4 @@
-/*------------------------------------*\
-    IMPORT
-\*------------------------------------*/
-/*------------------------------------*\
-    TYPOGRAPHY
-\*------------------------------------*/
-@font-face {
-    font-family: 'Graphik';
-    /*    src: url("../fonts/Graphik-Regular.otf") format("opentype");*/
-    src: url("../fonts/GraphikRegular.eot");
-    src: url("../fonts/GraphikRegular.eot") format("embedded-opentype"), url("../fonts/GraphikRegular.woff2") format("woff2"), url("../fonts/GraphikRegular.woff") format("woff"), url("../fonts/GraphikRegular.ttf") format("truetype"), url("../fonts/GraphikRegular.svg#GraphikRegular") format("svg");
-    font-weight: 400;
-    font-style: normal;
-    font-stretch: normal; }
-@font-face {
-    font-family: 'Graphik';
-    /*    src: url("../fonts/Graphik-Medium.otf") format("opentype");*/
-    src: url("../fonts/Graphik-Medium.eot");
-    src: url("../fonts/Graphik-Medium.eot") format("embedded-opentype"), url("../fonts/Graphik-Medium.woff2") format("woff2"), url("../fonts/Graphik-Medium.woff") format("woff"), url("../fonts/Graphik-Medium.ttf") format("truetype"), url("../fonts/Graphik-Medium.svg#Graphik-Medium") format("svg");
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal; }
-@font-face {
-    font-family: 'Graphik';
-    /*    src: url("../fonts/Graphik-Semibold.otf") format("opentype");*/
-    src: url("../fonts/GraphikSemibold.eot");
-    src: url("../fonts/GraphikSemibold.eot") format("embedded-opentype"), url("../fonts/GraphikSemibold.woff2") format("woff2"), url("../fonts/GraphikSemibold.woff") format("woff"), url("../fonts/GraphikSemibold.ttf") format("truetype"), url("../fonts/GraphikSemibold.svg#GraphikSemibold") format("svg");
-    font-weight: 600;
-    font-style: normal;
-    font-stretch: normal; }
-@font-face {
-    font-family: 'Graphik';
-    src: url("../fonts/Graphik-LightItalic-Web.eot");
-    src: url("../fonts/Graphik-LightItalic-Web.eot?#iefix") format("embedded-opentype"), url("../fonts/Graphik-LightItalic-Web.woff2") format("woff2"), url("../fonts/Graphik-LightItalic-Web.woff") format("woff");
-    font-weight: 300;
-    font-style: italic;
-    font-stretch: normal; }
-@font-face {
-    font-family: 'Graphik';
-    src: url("../fonts/Graphik-Light-Web.eot");
-    src: url("../fonts/Graphik-Light-Web.eot?#iefix") format("embedded-opentype"), url("../fonts/Graphik-Light-Web.woff2") format("woff2"), url("../fonts/Graphik-Light-Web.woff") format("woff");
-    font-weight: 300;
-    font-style: normal;
-    font-stretch: normal; }
-@font-face {
-    font-family: 'Graphik';
-    src: url("../fonts/Graphik-Black.eot");
-    src: url("../fonts/Graphik-Black.eot?#iefix") format("embedded-opentype"), url("../fonts/Graphik-Black.ttf") format("truetype"), url("../fonts/Graphik-Black.woff2") format("woff2"), url("../fonts/Graphik-Black.woff") format("woff");
-    font-weight: 800;
-    font-style: normal;
-    font-stretch: normal; }
-@font-face {
-    font-family: 'Muchura Alternate';
-    src: url("../fonts/muchura_bold_alternate-webfont.eot");
-    src: url("../fonts/muchura_bold_alternate-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/muchura_bold_alternate-webfont.woff2") format("woff2"), url("../fonts/muchura_bold_alternate-webfont.woff") format("woff");
-    font-weight: bold;
-    font-style: normal; }
-@font-face {
-    font-family: 'Muchura Alternate';
-    src: url("../fonts/muchura_regular_alternate-webfont.eot");
-    src: url("../fonts/muchura_regular_alternate-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/muchura_regular_alternate-webfont.woff2") format("woff2"), url("../fonts/muchura_regular_alternate-webfont.woff") format("woff");
-    font-weight: normal;
-    font-style: normal; }
-/**
- * Foundation for Sites by ZURB
- * Version 6.2.3
- * foundation.zurb.com
- * Licensed under MIT Open Source
- */
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-/**
- * 1. Set default font family to sans-serif.
- * 2. Prevent iOS and IE text size adjust after device orientation change,
- *    without disabling user zoom.
- */
+
 html {
     font-family: sans-serif;
     /* 1 */
@@ -1904,13 +1830,20 @@ small {
     font-size: 80%;
     line-height: inherit; }
 
+@font-face {
+    font-family: Graphik;
+    src: url("assets/fonts/GraphikMedium.otf") format("opentype");
+}
+
+
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: "Graphik", Helvetica, Roboto, Arial, sans-serif;
+    font-family: Helvetica;
     font-weight: normal;
     font-style: normal;
     color: inherit;
@@ -4038,11 +3971,10 @@ body.overflow-hidden {
         overflow: auto; }
     body.overflow-hidden .desktop-wrapper {
         display: none; } }
-body.home {
-    padding-top: 174px; }
+
 @media (min-width: 641px) and (max-width: 1400px) {
     body.home {
-        padding-top: 138px; } }
+        padding-top: 0px; } }
 @media (max-width: 1024px) {
     body.home {
         padding-top: 0; } }
@@ -4455,6 +4387,7 @@ main .projects-nav {
     display: block; }
 
 .project-list-wrapper {
+    margin-top: 5px;
     padding: 0 2px;
     background-color: #fff;
     position: relative;

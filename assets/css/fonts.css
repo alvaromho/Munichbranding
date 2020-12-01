@@ -1,10 +1,78 @@
-/*
-@font-face {
-    font-family: Montserrat;
-    src: url("assets/fonts/Montserrat-Regular.otf") format("opentype");
-}*/
-@font-face {
-    font-family: QuincyCF;
-    src: url("../fonts/QuincyCF-Light.otf") format("opentype");
-}
-
+/*
+@font-face {
+    font-family: Montserrat;
+    src: url("assets/fonts/Montserrat-Regular.otf") format("opentype");
+}*/
+@font-face {
+    font-family: QuincyCF;
+    src: url("../fonts/QuincyCF-Light.otf") format("opentype");
+}
+
+/*@font-face {
+    font-family: 'Graphik';
+    src: url("../fonts/Graphik-Font-Family/GraphikRegularItalic.otf") ormat("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-stretch: normal; }
+@font-face {
+    font-family: 'Graphik';
+    src: url("../fonts/Graphik-Medium.eot");
+    src: url("../fonts/Graphik-Medium.eot") format("embedded-opentype"), url("../fonts/Graphik-Medium.woff2") format("woff2"), url("../fonts/Graphik-Medium.woff") format("woff"), url("../fonts/Graphik-Medium.ttf") format("truetype"), url("../fonts/Graphik-Medium.svg#Graphik-Medium") format("svg");
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal; }
+@font-face {
+    font-family: 'Graphik';
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal; }
+@font-face {
+    font-family: 'Graphik';
+    src: url("../fonts/Graphik-Light.eot");
+    src: url("../fonts/Graphik-Light.eot") format("embedded-opentype"), url("../fonts/Graphik-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: italic;
+    font-stretch: normal; }*/
+
+@font-face {
+    font-family: ChronicleDisp;
+    src: url("assets/fonts/ChronicleDisp-Semibold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: Play;
+    src: url("assets/fonts/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Graphik3';
+    src: url("../fonts/Graphik-Font-Family/GraphikLight.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal; }
+@font-face {
+    font-family: 'Graphik3';
+    src: url("../fonts/Graphik-Font-Family/GraphikRegular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal; }
+
+@font-face {
+    font-family: 'Graphik3';
+    src: url("../fonts/Graphik-Font-Family/GraphikSemibold.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal; }
+@font-face {
+    font-family: 'Graphik3';
+    src: url("../fonts/Graphik-Font-Family/GraphikBold.otf") format("opentype");
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal; }
+@font-face {
+    font-family: 'Graphik3';
+    src: url("../fonts/Graphik-Font-Family/GraphikExtralight.otf") format("opentype");
+    font-weight: 200;
+    font-style: normal;
+    font-stretch: normal; }
+

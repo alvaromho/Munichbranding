@@ -1,6 +1,6 @@
 <?php
 
-require_once "assets/config/config.php";
+require_once "../../assets/config/config.php";
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     header("Content-Type: application/json");
@@ -43,8 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         try{
             $eliminar = $con->prepare("DELETE FROM proyecto WHERE idProyecto = '$id'");
             $eliminar->execute();
-            unlink(str_replace(" ","_",$nombre) . '.php');
-            unlink(str_replace(" ","_",$nombre).'_admin.php');
+
             //Borrar archivos
             echo 'Borrar';
         } catch(PDOException $e){

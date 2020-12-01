@@ -345,11 +345,11 @@ body.hidden-scroll {
 }
 
 #carousel-1 {
-  height: 80vh;
+  height: inherit;
 }
 
 .carousel-inner {
-  height: 90vh;
+  height: inherit;
 }
 
 .carousel-control-next {
